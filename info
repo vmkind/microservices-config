@@ -1,0 +1,33 @@
+As per the current implementation we use one rate per storage type, charges per box per day and count days from receiving the crop consigment to return with a one-day minimum.
+
+Q1. Is the container list exactly half box, full box, crate, or should we build it as a extendable master list(quarter box, sack, bin, tray etc)?
+
+Q2. Are the same container types accepted in all four storage types (CA, MA, CS, IQF), or does each type accept only some of them?
+
+Q3. Does the available container type depend on the crop as well — apples in boxes, eggs in crates — or is any container type valid for any crop?
+
+Q4. Can a single consignment hold a mix of container types — say 20 full boxes, 10 half boxes and 5 crates brought together by one depositor — or is one consignment always a single container type, with a mixed delivery entered as separate consignments?
+
+Q5. Currently operator enters weight per box and may override the computed total. Now if a mix is allowed, will the operator enter weight per container type for every type?
+
+Q6. Today a facility is configured as blocks × racks per storage type and one rack holds exactly one consignment. Does that still hold? Or does a rack now have a capacity expressed in container — a rack takes 20 full boxes, or 40 half boxes, or mix?
+
+Q7. Today one rate is held per storage type, effective from a date, and a consignment is charged at the rate applicable on the day it was received. Now with container type(full box, half box, crate etc) the new rate is defined against storage type + container type + effective date. With 4 storage types and 3 container types, we need to have12 rates at a time per facility?
+
+Q8. Will the rate also vary by crop? Adding crop would multiply the number of rates to maintain.
+
+Q9. Must the rate for every container type be defined before a storage type can accept a crop? Or storage type can be used for some container types e.g. only full boxes priced, in that case we refuse a half-box intake.
+
+Q10. Is the minimum period is only for billing and the depositor may collect whenever they like, but is charged for at least minimum period — or a lock-in, where the system refuses return before minimum period has passed?
+
+Q11. Is the minimum period per storage type only, or does it also vary by crop or by container type?
+
+Q12. How is the minimum amount charged — as N days × the daily rate, or as a separate flat amount that has nothing to do with the daily rate? For example ₹100 per box for the first 30 days, then ₹5 per box per day after that.
+
+Q13. What happens when the minimum period is longer than the crop's shelf life — for instance a 45-day minimum on a crop with 30 days of life? Should intake be refused, or allowed with a warning?
+
+Q14. On the return slip and the payment receipt, should the charge be itemised — a line per container type with quantity, rate and amount — or shown as a single total?
+
+Q15. Should the minimum-period portion appear as its own line, separate from the per-day portion in return slip? A depositor collecting on day 40 would then see the minimum charge and the ten extra days as two lines.
+
+Q16. In reports and on the monitoring dashboard, should stored quantity be shown as container types or as weight? As per current implementation it is boxes and tonnes.
